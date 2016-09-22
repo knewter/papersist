@@ -1,1 +1,1 @@
-%{"exirc": {:hex, :exirc, "0.11.0", "8d4adab6f7ab9e07d9c9f171ef05ed891357ea2de68604b9705217e526090b25", [:mix], []}}
+%{"exirc": {:git, "https://github.com/bitwalker/exirc.git", "daf1bef3a4dca08fdd589d2980a52a09883251f2", []}}

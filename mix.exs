@@ -17,8 +17,7 @@ defmodule Papersist.Mixfile do
 
   defp deps do
     [
-      { :exirc, "0.11.0" }
-      #{ :exirc, github: "knewter/exirc", branch: "feature/parse_rpl_topic" }
+      { :exirc, github: "bitwalker/exirc" }
     ]
   end
 end
