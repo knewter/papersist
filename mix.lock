@@ -1,1 +1,1 @@
-%{"exirc": {:git, "https://github.com/knewter/exirc.git", "b81cd51bd61d272cd3cc3f52478fa5101815b791", [branch: "feature/parse_rpl_topic"]}}
+%{"exirc": {:hex, :exirc, "0.11.0", "8d4adab6f7ab9e07d9c9f171ef05ed891357ea2de68604b9705217e526090b25", [:mix], []}}
