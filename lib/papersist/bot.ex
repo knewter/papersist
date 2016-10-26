@@ -2,6 +2,7 @@ defmodule Papersist.Bot do
   use GenServer
   require Logger
   @url_regex ~r(https?://[^ $\n]*)
+  @channel "#cool-papers"
   alias Papersist.Queue
 
   defmodule State do
@@ -11,7 +12,7 @@ defmodule Papersist.Bot do
               nick:    "jadams",
               user:    "jadams",
               name:    "Josh Adams",
-              channel: "#cool-papers",
+              channel: @channel,
               client:  nil,
               handlers: []
   end
@@ -66,7 +67,9 @@ defmodule Papersist.Bot do
   end
   def handle_info({:received, msg, %SenderInfo{:nick => nick}, channel}, state) do
     Logger.info "#{nick} from #{channel}: #{msg}"
-    :ok = handle_links(msg, nick)
+    if channel == @channel do
+      :ok = handle_links(msg, nick)
+    end
     {:noreply, state}
   end
   def handle_info({:mentioned, msg, %SenderInfo{:nick => nick}, channel}, state) do

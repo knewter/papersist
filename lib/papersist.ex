@@ -8,12 +8,19 @@ defmodule Papersist do
   end
 
   def children(:test) do
-    children(:dev) |> List.delete(worker(Papersist.Bot, []))
+    children(:dev)
+      |> List.delete(bot_worker())
+      |> List.delete(poster_worker())
   end
   def children(_) do
     [
-      worker(Papersist.Queue, []),
-      worker(Papersist.Bot, [])
+      queue_worker(),
+      bot_worker(),
+      poster_worker()
     ]
   end
+
+  defp bot_worker, do: worker(Papersist.Bot, [])
+  defp poster_worker, do: worker(Papersist.Poster, [])
+  defp queue_worker, do: worker(Papersist.Queue, [])
 end
