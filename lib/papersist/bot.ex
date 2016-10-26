@@ -1,6 +1,8 @@
 defmodule Papersist.Bot do
   use GenServer
   require Logger
+  @url_regex ~r(https?://[^ $\n]*)
+  alias Papersist.Queue
 
   defmodule State do
     defstruct server:  "elmlang.irc.slack.com",
@@ -64,6 +66,7 @@ defmodule Papersist.Bot do
   end
   def handle_info({:received, msg, %SenderInfo{:nick => nick}, channel}, state) do
     Logger.info "#{nick} from #{channel}: #{msg}"
+    :ok = handle_links(msg, nick)
     {:noreply, state}
   end
   def handle_info({:mentioned, msg, %SenderInfo{:nick => nick}, channel}, state) do
@@ -83,6 +86,16 @@ defmodule Papersist.Bot do
     # Quit the channel and close the underlying client connection when the process is terminating
     Client.quit state.client, "Goodbye, cruel world."
     Client.stop! state.client
+    :ok
+  end
+
+  def handle_links(msg, nick) do
+    Regex.scan(@url_regex, msg)
+      |> Enum.map(fn(urls) ->
+        Enum.map(urls, fn(url) ->
+          Queue.put_in(%{message: msg, sender: nick, url: url})
+        end)
+      end)
     :ok
   end
 end
