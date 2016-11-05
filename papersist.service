@@ -5,10 +5,9 @@ After=network.target
 [Service]
 WorkingDirectory=/opt/papersist
 EnvironmentFile=/etc/default/papersist.env
-ExecStart=/opt/papersist/bin/papersist start
-ExecStop=/opt/papersist/bin/papersist stop
+ExecStart=/opt/papersist/bin/papersist foreground
 User=jadams
-RemainAfterExit=yes
+RemainAfterExit=no
 
 [Install]
 WantedBy=multi-user.target
