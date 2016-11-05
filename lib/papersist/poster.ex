@@ -1,23 +1,21 @@
 defmodule Papersist.Poster do
-  use GenServer
-  alias Papersist.Queue
+  alias Experimental.GenStage
+  alias Papersist.LinkFilter
+  use GenStage
 
   def start_link() do
-    GenServer.start_link(__MODULE__, [])
+    GenStage.start_link(__MODULE__, :ok, name: __MODULE__)
   end
 
-  def init([]) do
-    send(self, :post_from_queue)
-    {:ok, :no_state}
+  def init(:ok) do
+    {:consumer, :ok, subscribe_to: [LinkFilter]}
   end
 
-  def handle_info(:post_from_queue, state) do
-    case Queue.out do
-      :empty -> :ok
-      {:value, message} -> post_message(message)
-    end
-    Process.send_after(self, :post_from_queue, 1_000)
-    {:noreply, state}
+  def handle_events(events, _from, state) do
+    IO.puts "Poster events:"
+    IO.inspect events
+    events |> Enum.map(&post_message/1)
+    {:noreply, [], state}
   end
 
   def post_message(%{message: message, sender: nick, url: url}) do

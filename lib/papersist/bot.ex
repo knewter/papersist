@@ -67,9 +67,7 @@ defmodule Papersist.Bot do
   end
   def handle_info({:received, msg, %SenderInfo{:nick => nick}, channel}, state) do
     Logger.info "#{nick} from #{channel}: #{msg}"
-    if channel == @channel do
-      :ok = handle_links(msg, nick)
-    end
+    :ok = handle_message(msg, nick, channel)
     {:noreply, state}
   end
   def handle_info({:mentioned, msg, %SenderInfo{:nick => nick}, channel}, state) do
@@ -92,13 +90,14 @@ defmodule Papersist.Bot do
     :ok
   end
 
-  def handle_links(msg, nick) do
-    Regex.scan(@url_regex, msg)
-      |> Enum.map(fn(urls) ->
-        Enum.map(urls, fn(url) ->
-          Queue.put_in(%{message: msg, sender: nick, url: url})
-        end)
-      end)
+  def handle_message(msg, nick, channel) do
+    Queue.put_in(%{message: msg, sender: nick, channel: channel})
     :ok
+    # Regex.scan(@url_regex, msg)
+    #   |> Enum.map(fn(urls) ->
+    #     Enum.map(urls, fn(url) ->
+    #       Queue.put_in(%{message: msg, sender: nick, url: url})
+    #     end)
+    #   end)
   end
 end

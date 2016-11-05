@@ -11,7 +11,7 @@ defmodule Papersist.Mixfile do
   end
 
   def application do
-    [applications: [:logger, :exirc, :ibrowse],
+    [applications: [:logger, :exirc, :ibrowse, :gen_stage],
      mod: {Papersist, []}]
   end
 
@@ -20,7 +20,8 @@ defmodule Papersist.Mixfile do
       { :exirc, github: "bitwalker/exirc" },
       { :tesla, "~> 0.5.0" },
       { :ibrowse, "~> 4.2" },
-      { :poison, ">= 1.0.0" }
+      { :poison, ">= 1.0.0" },
+      { :gen_stage, "~> 0.4" }
     ]
   end
 end
