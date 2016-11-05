@@ -11,7 +11,7 @@ defmodule Papersist.Mixfile do
   end
 
   def application do
-    [applications: [:logger, :exirc, :ibrowse, :gen_stage],
+    [applications: [:logger, :exirc, :ibrowse, :gen_stage, :poison, :tesla],
      mod: {Papersist, []}]
   end
 
@@ -21,7 +21,8 @@ defmodule Papersist.Mixfile do
       { :tesla, "~> 0.5.0" },
       { :ibrowse, "~> 4.2" },
       { :poison, ">= 1.0.0" },
-      { :gen_stage, "~> 0.4" }
+      { :gen_stage, "~> 0.4" },
+      { :distillery, "~> 0.10" }
     ]
   end
 end

@@ -5,7 +5,10 @@ defmodule Papersist do
 
   def start(_type, _args) do
     opts = [strategy: :rest_for_one, name: Papersist.Supervisor]
-    Supervisor.start_link(children(Mix.env), opts)
+
+    Application.get_env(:papersist, :environment)
+      |> children
+      |> Supervisor.start_link(opts)
   end
 
   def children(:test) do

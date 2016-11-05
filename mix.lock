@@ -1,4 +1,5 @@
-%{"exirc": {:git, "https://github.com/bitwalker/exirc.git", "daf1bef3a4dca08fdd589d2980a52a09883251f2", []},
+%{"distillery": {:hex, :distillery, "0.10.1", "14fccade4b8ab849b99e21c4bdfaa1092dbacdce8afd33f5c369c6e114385b0e", [:mix], []},
+  "exirc": {:git, "https://github.com/bitwalker/exirc.git", "daf1bef3a4dca08fdd589d2980a52a09883251f2", []},
   "gen_stage": {:hex, :gen_stage, "0.8.0", "a76e3f0530f86fae8b8a1021c06527b1ec171cf4c0bdfecd8d5ad0376d1205af", [:mix], []},
   "ibrowse": {:hex, :ibrowse, "4.2.2", "b32b5bafcc77b7277eff030ed32e1acc3f610c64e9f6aea19822abcadf681b4b", [:rebar3], []},
   "poison": {:hex, :poison, "3.0.0", "625ebd64d33ae2e65201c2c14d6c85c27cc8b68f2d0dd37828fde9c6920dd131", [:mix], []},

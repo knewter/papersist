@@ -1,0 +1,14 @@
+[Unit]
+Description=Runner for Papersist
+After=network.target
+
+[Service]
+WorkingDirectory=/opt/papersist
+EnvironmentFile=/etc/default/papersist.env
+ExecStart=/opt/papersist/bin/papersist start
+ExecStop=/opt/papersist/bin/papersist stop
+User=jadams
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
