@@ -28,6 +28,7 @@ defmodule Papersist.Bot do
   def init([state]) do
     # Start the client and handler processes, the ExIrc supervisor is automatically started when your app runs
     {:ok, client}  = ExIrc.start_client!()
+    Process.link(client)
 
     # Register the event handler with ExIrc
     Client.add_handler client, self()
