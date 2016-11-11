@@ -11,7 +11,7 @@ defmodule Papersist.Mixfile do
   end
 
   def application do
-    [applications: [:logger, :exirc, :ibrowse, :gen_stage, :poison, :tesla],
+    [applications: [:logger, :exirc, :ibrowse, :gen_stage, :poison, :tesla, :conform],
      mod: {Papersist, []}]
   end
 
