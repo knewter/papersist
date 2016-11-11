@@ -32,5 +32,7 @@ end
 
 release :papersist do
   set version: current_version(:papersist)
+
+  plugin Conform.ReleasePlugin
 end
 

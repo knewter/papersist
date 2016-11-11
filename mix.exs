@@ -22,7 +22,8 @@ defmodule Papersist.Mixfile do
       { :ibrowse, "~> 4.2" },
       { :poison, ">= 1.0.0" },
       { :gen_stage, "~> 0.4" },
-      { :distillery, "~> 0.10" }
+      { :distillery, "~> 0.10" },
+      { :conform, "~> 2.1.1" }
     ]
   end
 end
