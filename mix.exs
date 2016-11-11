@@ -23,7 +23,7 @@ defmodule Papersist.Mixfile do
       { :poison, ">= 1.0.0" },
       { :gen_stage, "~> 0.4" },
       { :distillery, github: "bitwalker/distillery" },
-      { :conform, "~> 2.1.1" }
+      { :conform, github: "bitwalker/conform" }
     ]
   end
 end
