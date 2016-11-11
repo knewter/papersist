@@ -1,5 +1,5 @@
 %{"conform": {:hex, :conform, "2.1.1", "8e31fdf84e7bc4bf09aaab1de9f231d611fb39f58463c67f4dcf1803c78a4222", [:mix], [{:neotoma, "~> 1.7.3", [hex: :neotoma, optional: false]}]},
-  "distillery": {:hex, :distillery, "0.10.1", "14fccade4b8ab849b99e21c4bdfaa1092dbacdce8afd33f5c369c6e114385b0e", [:mix], []},
+  "distillery": {:git, "https://github.com/bitwalker/distillery.git", "2de0611ab6ebecf8c32d5e5ce793a5e6bf112145", []},
   "exirc": {:git, "https://github.com/bitwalker/exirc.git", "daf1bef3a4dca08fdd589d2980a52a09883251f2", []},
   "gen_stage": {:hex, :gen_stage, "0.8.0", "a76e3f0530f86fae8b8a1021c06527b1ec171cf4c0bdfecd8d5ad0376d1205af", [:mix], []},
   "ibrowse": {:hex, :ibrowse, "4.2.2", "b32b5bafcc77b7277eff030ed32e1acc3f610c64e9f6aea19822abcadf681b4b", [:rebar3], []},
