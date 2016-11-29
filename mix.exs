@@ -3,7 +3,7 @@ defmodule Papersist.Mixfile do
 
   def project do
     [app: :papersist,
-     version: "0.2.0",
+     version: "0.3.0",
      elixir: "~> 1.3",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
@@ -11,7 +11,7 @@ defmodule Papersist.Mixfile do
   end
 
   def application do
-    [applications: [:logger, :exirc, :ibrowse, :gen_stage, :poison, :tesla],
+    [applications: [:logger, :exirc, :ibrowse, :gen_stage, :poison, :tesla, :ssl],
      mod: {Papersist, []}]
   end
 
